@@ -10,8 +10,8 @@ Menu for today:  11:00(optional)
     9.   Add a endpoint to see all the images in the db (all 10 million images?)🖼️
     10.  Add a endpoint to add a user 👱🏻
     11.  Add a endpoint to login!  🔑🔑
-    after lunch:
-    11.5 Talk about next()
+    after lunch: 14:30
+    11.5 Talk about next() // middleware
     12.  Talk about JWT
     13.  Talk about CORS
     14.  Talk about git collaboration

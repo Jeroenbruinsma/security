@@ -1,6 +1,7 @@
-const {Router, request, response} = require("express")
+const {Router} = require("express")
 const router = new Router()
 const User = require("../models").user
+const bcrypt = require("bcrypt")
 
 router.get("/", (request, response) =>{
     console.log("Got a request on /user", request.body)
@@ -16,8 +17,9 @@ router.post("/", async (request, response) => {
         return response.send("missing some info! please supply email, pass, name")
     }
     try{
-        const newUser = await User.create({email, password, fullName}) 
-        console.log("the new user:", newUser.dataValues)
+    
+        const encryptedPassword =  bcrypt.hashSync( password,  10)
+        const newUser = await User.create({email, password: encryptedPassword, fullName}) 
 
         const user =  {...newUser.dataValues}
         delete user.password
@@ -31,6 +33,8 @@ router.post("/", async (request, response) => {
 
 
 }) 
+
+
 
 
 module.exports =  router
