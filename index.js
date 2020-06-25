@@ -23,4 +23,4 @@ app.get("/", (request, response)=> {
 
 app.use(authRouter)
 app.use("/image" ,auth   ,imageRouter)
-app.use("/user", userRouter)
+app.use("/user", auth , userRouter)
