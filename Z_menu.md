@@ -20,7 +20,7 @@ Menu for today:  11:00(optional)
     
 
 
-Menu for friday:
+Menu for friday: 9:30
     1. Coding, coding, coding, coding
     2. Lunch😍
     3. Coding, coding, coding, coding
