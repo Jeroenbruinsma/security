@@ -3,10 +3,13 @@ const port = process.env.PORT || 4000
 const imageRouter =  require("./routers/image")
 const userRouter = require("./routers/user")
 const authRouter = require("./auth/router")
+const auth = require("./auth/middleware")
+const cors = require("cors")
 
 const app = express()
 
 app.use(express.json())//bodyparser
+app.use(cors()) // only needed if you want to make front end! (react)
 
 app.listen(port, console.log("server running", port))
 
@@ -16,6 +19,8 @@ app.get("/", (request, response)=> {
     response.send("Server running")
     
 })
+
+
 app.use(authRouter)
-app.use("/image" ,imageRouter)
+app.use("/image" ,auth   ,imageRouter)
 app.use("/user", userRouter)

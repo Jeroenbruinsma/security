@@ -12,18 +12,21 @@ router.post("/login", async (request, response) => {
         if(!email || !password){
             return response.status(400).send("missing email or password")
         }
+
         const user = await User.findOne({where: {email}}) 
-        if(user){
-            const passwordsMatch = bcrypt.compareSync(password , user.dataValues.password)
-            if(passwordsMatch){
-                const token = toJWT({userId: user.id})
-                response.json( {token: token })
-            }else{
-                response.status(401).send("password was wrong")
-            }
-        }else{
+        
+        if(!user){
             response.status(400).send("user unknown")
         }
+
+        const passwordsMatch = bcrypt.compareSync(password , user.dataValues.password)
+        if(passwordsMatch){
+            const token = toJWT({userId: user.id})
+            response.json( {token: token })
+        }else{
+            response.status(401).send("password was wrong")
+        }
+        
         
     }catch(err){
         console.log(err)

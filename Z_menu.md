@@ -12,9 +12,11 @@ Menu for today:  11:00(optional)
     11.  Add a endpoint to login!  🔑🔑
     after lunch: 14:30
     11.5 Talk about next() // middleware
-    12.  Talk about JWT
-    13.  Talk about CORS
-    14.  Talk about git collaboration
+    12.  Talk about JWT  is stored or in a cookie, or in localstorage or in Reduxxx
+    13.  Talk about CORS 
+    14.  Talk about git collaboration 
+
+    🍦🍦🍦🍦🍦🍦🍦🍦
     
 
 
